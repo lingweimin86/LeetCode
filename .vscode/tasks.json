@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}/build"
+    },
+
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "make project",
+            "command": "cmake",
+            "args": [
+                "-G",
+                "MinGW Makefiles",
+                ".."
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "run build",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ]
+        },
+        {
+            "label": "Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "make project",
+                "run build"
+            ]
+        }
+    ]
+}
